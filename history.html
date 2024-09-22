@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css">
+    
+    <!-- font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+ <!-- daisy & tailwind     -->
+ <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            button:'#B4F461',
+            bg:'#F9F7F3',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="lexend">
+    <header class="bg-bg mb-16">
+        <nav class="flex justify-around py-6 ">
+            <button class="btn btn-outline px-8 bg-button border-none">Blog</button>
+            <div class="flex  items-center gap-2"> 
+                <img src="./assets/logo.png" alt="">
+                <p class="text-xl">Donate Bangladesh</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <img src="./assets/coin.png" alt="">
+                <p class="text-xl">98600 BDT</p>
+            </div>
+        </nav>
+     </header> 
+     <main>
+        <div class="flex justify-center items-center space-x-4 mb-8 ">
+            <button class="btn btn-outline border-none  bg-button">Donation</button>
+            <button class="btn btn-outline ">History</button>
+        </div>
+
+
+     </main>
+    <script src="./style/style.js"></script> 
+</body>
+</html>
