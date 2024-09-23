@@ -1,19 +1,43 @@
-document.getElementById('donation-button').addEventListener('click',function(event){
-event.preventDefault();
- document.getElementById('donation-button').style.display='block'
- document.getElementById('History-button').style.display='none'
-})
 document.getElementById('History-button').addEventListener('click',function(event){
 event.preventDefault();
- document.getElementById('donation-button').style.display='none'
- document.getElementById('History-button').style.display='block'
+ document.getElementById('historyData').classList.remove('hidden');
+ document.getElementById('donate-data').classList.add('hidden'); 
+ 
+})
+    
+document.getElementById('donation-button').addEventListener('click',function(event){
+    event.preventDefault();
+     document.getElementById('historyData').classList.add('hidden');
+     document.getElementById('donate-data').classList.remove('hidden');
+    })
+
+    function tranSaction(donate){
+
+        const currentDate = new Date();
+        const date = currentDate.toLocaleDateString();  
+        const time = currentDate.toLocaleTimeString();
+        const transactionItem = document.createElement('li');
+        transactionItem.innerText = `${date}, ${time}: Donated ${donate} BDT`;
+        document.getElementById('History-list').appendChild(transactionItem);
+        
+    }
+
+document.getElementById('donate-now-button').addEventListener('click',function(){
+ const firstDonateAmount= document.getElementById('input-money').value;
+ tranSaction(firstDonateAmount);
+})
+document.getElementById('second-donate-button').addEventListener('click',function(){
+ const secondDonateAmount= document.getElementById('second-input-money').value;
+ tranSaction(secondDonateAmount);
+})
+document.getElementById('third-donate-button').addEventListener('click',function(){
+ const thirdDonateAmount= document.getElementById('third-input-money').value;
+ tranSaction(thirdDonateAmount);
 })
 
+//   calculate   
 document.getElementById('donate-now-button').addEventListener('click',function(event){
     event.preventDefault();
-  
-
-
     let amount=document.getElementById('initial-balance').innerText;
     amount= parseInt(amount);
  let inputField =document.getElementById('input-money');
@@ -39,7 +63,7 @@ document.getElementById('balance').innerText = myBalance + 'BDT'
         alert('you have not enough money');
         return;
     }  
- 
+ document.getElementById('my_modal_6').checked = true;
   
 })
 // second  
@@ -73,6 +97,7 @@ document.getElementById('balance').innerText = mySecondBalance + 'BDT'
         alert('you have not enough money');
         return;
     }  
+    document.getElementById('my_modal_6').checked = true;
 })
 // 3rd 
 document.getElementById('third-donate-button').addEventListener('click',function(event){
@@ -103,13 +128,9 @@ document.getElementById('balance').innerText = thirdmyBalance+ 'BDT'
         alert('you have not enough money');
         return;
     }  
+    document.getElementById('my_modal_6').checked = true;
 })
 
 
 // history  
-function transaction(donate, time, date) {
-    const date = new Date();
-    const transactionItem = document.createElement('li');
-    transactionItem.innerText = `${date}, ${time}: Donated ${donate} BDT by Anonymous`;
-    document.getElementById('History-list').appendChild(transactionItem);
-}
+
