@@ -2,13 +2,22 @@ document.getElementById('History-button').addEventListener('click',function(even
 event.preventDefault();
  document.getElementById('historyData').classList.remove('hidden');
  document.getElementById('donate-data').classList.add('hidden'); 
- 
+
+ const element=document.getElementById('History-button')
+ element.style.backgroundColor='#B4F461';
+ const elementTwo=document.getElementById('donation-button')
+ elementTwo.style.backgroundColor='gray';
 })
     
 document.getElementById('donation-button').addEventListener('click',function(event){
     event.preventDefault();
      document.getElementById('historyData').classList.add('hidden');
      document.getElementById('donate-data').classList.remove('hidden');
+
+     const element=document.getElementById('History-button')
+     element.style.backgroundColor='white';
+     const elementTwo=document.getElementById('donation-button')
+     elementTwo.style.backgroundColor='#B4F461';   
     })
 
     function tranSaction(donate){
