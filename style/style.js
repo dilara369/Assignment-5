@@ -11,7 +11,7 @@ event.preventDefault();
 
 document.getElementById('donate-now-button').addEventListener('click',function(event){
     event.preventDefault();
-    // console.log('hiii')
+  
 
 
     let amount=document.getElementById('initial-balance').innerText;
@@ -29,10 +29,7 @@ myBalance -= donate;
 document.getElementById('initial-balance').innerText=amount + 'BDT'  
 document.getElementById('balance').innerText = myBalance + 'BDT'    
 
-    // if(!nameOfdonner){
-    //     alert ('please enter valid name');
-    //     return ;
-    // }
+    
     if(isNaN(amount) || amount<=0){
         alert('please enter valid amount')
         return;
@@ -48,7 +45,7 @@ document.getElementById('balance').innerText = myBalance + 'BDT'
 // second  
 document.getElementById('second-donate-button').addEventListener('click',function(event){
     event.preventDefault();
-    // console.log('hiii')
+    
 
 
     let secondAmount=document.getElementById('second-initial-blnc').innerText;
@@ -66,10 +63,7 @@ mySecondBalance -= secondDonate;
 document.getElementById('second-initial-blnc').innerText=secondAmount + 'BDT'  
 document.getElementById('balance').innerText = mySecondBalance + 'BDT'    
 
-    // if(!nameOfdonner){
-    //     alert ('please enter valid name');
-    //     return ;
-    // }
+    
     if(isNaN(secondAmount) || secondAmount<=0){
         alert('please enter valid amount')
         return;
@@ -83,7 +77,7 @@ document.getElementById('balance').innerText = mySecondBalance + 'BDT'
 // 3rd 
 document.getElementById('third-donate-button').addEventListener('click',function(event){
     event.preventDefault();
-    // console.log('hiii')
+   
     let thirdAmount=document.getElementById('third-initial-balance').innerText;
     thirdAmount= parseInt(thirdAmount);
  let thirdInputField =document.getElementById('third-input-money');
@@ -99,10 +93,7 @@ thirdmyBalance -= thirdDonate;
 document.getElementById('third-initial-balance').innerText=thirdAmount + 'BDT'  
 document.getElementById('balance').innerText = thirdmyBalance+ 'BDT'    
 
-    // if(!nameOfdonner){
-    //     alert ('please enter valid name');
-    //     return ;
-    // }
+    
     if(isNaN(thirdAmount) || thirdAmount<=0){
         alert('please enter valid amount')
         return;
