@@ -1,0 +1,10 @@
+document.getElementById('donation-button').addEventListener('click',function(event){
+event.preventDefault();
+ document.getElementById('donation-data').style.display='block'
+ document.getElementById('history-data').style.display='none'
+})
+document.getElementById('History-button').addEventListener('click',function(event){
+event.preventDefault();
+ document.getElementById('donation-data').style.display='none'
+ document.getElementById('history-data').style.display='block'
+})
