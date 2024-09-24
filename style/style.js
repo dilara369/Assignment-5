@@ -25,6 +25,7 @@ document.getElementById('donation-button').addEventListener('click',function(eve
         const currentDate = new Date();
         const date = currentDate.toLocaleDateString();  
         const time = currentDate.toLocaleTimeString();
+
         const transactionItem = document.createElement('li');
         transactionItem.innerText = `${date}, ${time}: Donated ${donate} BDT`;
         document.getElementById('History-list').appendChild(transactionItem);
@@ -32,21 +33,64 @@ document.getElementById('donation-button').addEventListener('click',function(eve
     }
 
 document.getElementById('donate-now-button').addEventListener('click',function(){
- const firstDonateAmount= document.getElementById('input-money').value;
- tranSaction(firstDonateAmount);
+    const firstDonateAmount= document.getElementById('input-money').value;
+    const donate=parseFloat(firstDonateAmount);
+    if(isNaN(donate) || donate<=0){
+        alert('please enter valid amount')
+        return;
+    }
+
+ const myBalance= document.getElementById('balance').innerText;
+
+    if (donate > myBalance)
+    {
+        alert('you have not enough money');
+        return;
+    }  
+ tranSaction(donate);
 })
 document.getElementById('second-donate-button').addEventListener('click',function(){
  const secondDonateAmount= document.getElementById('second-input-money').value;
- tranSaction(secondDonateAmount);
+ const donate=parseFloat(secondDonateAmount);
+ if(isNaN(donate) || donate<=0){
+     alert('please enter valid amount')
+     return;
+ }
+
+const myBalance= document.getElementById('balance').innerText;
+
+ if (donate > myBalance)
+ {
+     alert('you have not enough money');
+     return;
+ }  
+tranSaction(donate);
+
+ 
 })
 document.getElementById('third-donate-button').addEventListener('click',function(){
  const thirdDonateAmount= document.getElementById('third-input-money').value;
- tranSaction(thirdDonateAmount);
+ const donate=parseFloat(thirdDonateAmount);
+    if(isNaN(donate) || donate<=0){
+        alert('please enter valid amount')
+        return;
+    }
+
+ const myBalance= document.getElementById('balance').innerText;
+
+    if (donate > myBalance)
+    {
+        alert('you have not enough money');
+        return;
+    }  
+ tranSaction(donate);
+ 
 })
 
 //   calculate   
 document.getElementById('donate-now-button').addEventListener('click',function(event){
     event.preventDefault();
+
     let amount=document.getElementById('initial-balance').innerText;
     amount= parseInt(amount);
  let inputField =document.getElementById('input-money');
@@ -54,24 +98,26 @@ document.getElementById('donate-now-button').addEventListener('click',function(e
  donate= parseInt(donate);
  inputField.value = '';
  amount+=donate;
+
 let myBalance=document.getElementById('balance').innerText;
 myBalance = myBalance.replace('BDT', '').trim();
 myBalance=parseInt(myBalance);
 myBalance -= donate;
 
+if(isNaN(amount) || amount<=0){
+    alert('please enter valid amount')
+    return;
+}
+if (amount > myBalance)
+{
+    alert('you have not enough money');
+    return;
+}  
+// i put the condition here cause code read line by line  
+
 document.getElementById('initial-balance').innerText=amount + 'BDT'  
 document.getElementById('balance').innerText = myBalance + 'BDT'    
 
-    
-    if(isNaN(amount) || amount<=0){
-        alert('please enter valid amount')
-        return;
-    }
-    if (amount > myBalance)
-    {
-        alert('you have not enough money');
-        return;
-    }  
  document.getElementById('my_modal_6').checked = true;
   
 })
@@ -88,25 +134,27 @@ document.getElementById('second-donate-button').addEventListener('click',functio
  secondDonate= parseInt(secondDonate);
  secondInputField.value = '';
  secondAmount+=secondDonate;
+ 
 let mySecondBalance=document.getElementById('balance').innerText;
 mySecondBalance = mySecondBalance.replace('BDT', '').trim();
 mySecondBalance=parseInt(mySecondBalance);
 mySecondBalance -= secondDonate;
 
+if(isNaN(secondAmount) || secondAmount<=0){
+    alert('please enter valid amount')
+    return;
+}
+if (secondAmount > mySecondBalance)
+{
+    alert('you have not enough money');
+    return;
+}  
+
 document.getElementById('second-initial-blnc').innerText=secondAmount + 'BDT'  
 document.getElementById('balance').innerText = mySecondBalance + 'BDT'    
 
-    
-    if(isNaN(secondAmount) || secondAmount<=0){
-        alert('please enter valid amount')
-        return;
-    }
-    if (secondAmount > mySecondBalance)
-    {
-        alert('you have not enough money');
-        return;
-    }  
     document.getElementById('my_modal_6').checked = true;
+
 })
 // 3rd 
 document.getElementById('third-donate-button').addEventListener('click',function(event){
@@ -119,25 +167,27 @@ document.getElementById('third-donate-button').addEventListener('click',function
  thirdDonate= parseInt(thirdDonate);
  thirdInputField.value = '';
  thirdAmount+=thirdDonate;
+ 
 let thirdmyBalance=document.getElementById('balance').innerText;
 thirdmyBalance = thirdmyBalance.replace('BDT', '').trim();
 thirdmyBalance=parseInt(thirdmyBalance);
 thirdmyBalance -= thirdDonate;
 
+if(isNaN(thirdAmount) || thirdAmount<=0){
+    alert('please enter valid amount')
+    return;
+}
+if (thirdAmount> thirdmyBalance)
+{
+    alert('you have not enough money');
+    return;
+}  
+
 document.getElementById('third-initial-balance').innerText=thirdAmount + 'BDT'  
 document.getElementById('balance').innerText = thirdmyBalance+ 'BDT'    
 
-    
-    if(isNaN(thirdAmount) || thirdAmount<=0){
-        alert('please enter valid amount')
-        return;
-    }
-    if (thirdAmount> thirdmyBalance)
-    {
-        alert('you have not enough money');
-        return;
-    }  
     document.getElementById('my_modal_6').checked = true;
+
 })
 
 
